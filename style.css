@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-color: pink;
+    color: black;
+    font-family: Verdana;
+    font-size: large;
+    white-space: pre-line;
+    margin-top: 0;
+}
+
+header {
+    background-color: pink;
+    padding: 0;
+    text-align: center;
+}	
+
+.guadaTexto{
+  background-color: black;
+  height: 300px;
+  width: 50vw;
+  margin-left: 25vw;
+  margin-right: 25vw;
+  font-style: italic;
+  border: 1px solid black;
+  color: white;
+}
