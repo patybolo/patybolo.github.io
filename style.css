@@ -21,6 +21,7 @@ header {
 
 .guadaTexto{
   background-color: black;
+  overflow: scroll;
   padding: 10px 10px 10px 10px;
   height: 540px;
   width: 50vw;
