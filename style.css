@@ -21,7 +21,8 @@ header {
 
 .guadaTexto{
   background-color: black;
-  height: 300px;
+  padding: 10px 10px 10px 10px;
+  height: 540px;
   width: 50vw;
   margin-left: 25vw;
   margin-right: 25vw;
