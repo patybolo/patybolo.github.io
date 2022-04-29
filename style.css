@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: pink;
+    background-color: black;
     color: black;
     font-family: Verdana;
     font-size: large;
@@ -14,10 +14,34 @@ body {
 }
 
 header {
-    background-color: pink;
+    background-color: black;
     padding: 0;
     text-align: center;
 }	
+
+
+.depresion {
+    background-color: black;
+    padding: 0;
+    text-align: center;
+    color: white;
+}
+
+.listaBuenita{
+    background-color: gray;
+    padding: 0;
+    text-align: center;
+    color: white;
+    margin-left: 25vw;
+    margin-right: 25vw;
+}
+
+.parteGuada{
+    background-color: pink;
+    padding: 0;
+    text-align: center;
+    color: black;  
+}
 
 .guadaTexto{
   background-color: black;
@@ -30,4 +54,14 @@ header {
   font-style: italic;
   border: 1px solid black;
   color: white;
+}
+
+.final{
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .guadaTexto {
+   font-size: 10px
+   }
 }
