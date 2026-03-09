@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~/daru_folio $</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- CRT scanlines effect -->
+    <div class="crt-overlay"></div>
+    <div class="crt-scanlines"></div>
+    
+    <!-- Terminal Controls -->
+    <div class="terminal-controls">
+        <button id="aboutBtn" class="terminal-btn" title="About">
+            <span class="btn-brackets">[</span><span data-i18n="nav.about">about</span><span class="btn-brackets">]</span>
+        </button>
+        <button id="langToggle" class="terminal-btn lang-toggle" title="Change Language">
+            <span class="btn-brackets">[</span><span id="currentLang">EN</span><span class="btn-brackets">]</span>
+        </button>
+        <div id="themeToggle" title="Change Color Theme">
+            <button class="theme-option active" data-theme="green">🟢</button>
+            <button class="theme-option" data-theme="amber">🟠</button>
+            <button class="theme-option" data-theme="cyan">🔵</button>
+            <button class="theme-option" data-theme="mono">⚪</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="terminal-prompt">
+                <span class="prompt-symbol">$</span>
+                <span class="prompt-text">whoami</span>
+                <span class="cursor">_</span>
+            </div>
+            <h1 class="name">
+                <span class="name-prefix">&gt;</span> Dario Martin Camino
+            </h1>
+            <p class="tagline">
+                <span class="tag-prefix">#</span> <span data-i18n="tagline">Low Level Developer & Systems Programmer</span>
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/patybolo" target="_blank" class="terminal-link">
+                    <span class="link-prefix">~/</span>github<span class="link-suffix">.io</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <section class="intro">
+                <div class="terminal-box">
+                    <div class="terminal-header">
+                        <span class="terminal-title">$ cat intro.txt</span>
+                    </div>
+                    <p class="terminal-text" data-i18n="intro">
+                        Primarily working on low level systems. Constantly learning about software architecture. Passionate about understanding everything from the ground up.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Category Filters -->
+            <section class="filters">
+                <div class="filter-label">
+                    <span class="prompt-symbol">$</span> <span data-i18n="filters.label">filter --category=</span>
+                </div>
+                <div class="filter-buttons" id="categoryFilters">
+                    <button class="filter-btn active" data-category="all">
+                        <span class="btn-brackets">[</span><span data-i18n="filters.all">all</span><span class="btn-brackets">]</span>
+                    </button>
+                    <!-- Dynamic category buttons will be inserted here -->
+                </div>
+            </section>
+
+            <!-- Projects Grid -->
+            <section class="projects">
+                <h2 class="section-title">
+                    <span class="prompt-symbol">$</span> ls -la <span data-i18n="projects.title">projects</span>/<span class="cursor">_</span>
+                </h2>
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be dynamically generated -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content terminal-window">
+            <div class="terminal-header">
+                <span class="terminal-title">$ cat project_details.txt</span>
+                <button class="modal-close">
+                    <span class="btn-brackets">[</span>X<span class="btn-brackets">]</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h2 id="modalTitle" class="modal-title">
+                    <span class="prompt-symbol">&gt;</span> <span id="modalTitleText"></span>
+                </h2>
+                
+                <div class="modal-section">
+                    <h3><span class="section-marker">##</span> <span data-i18n="modal.motivation">Motivation</span></h3>
+                    <p id="modalMotivation" class="terminal-text"></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><span class="section-marker">##</span> <span data-i18n="modal.status">Status</span></h3>
+                    <p id="modalStatus" class="status-badge"></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><span class="section-marker">##</span> <span data-i18n="modal.technologies">Technologies</span></h3>
+                    <div id="modalTechnologies" class="technologies-list"></div>
+                </div>
+
+                <div class="modal-section">
+                    <a id="modalGithubLink" href="#" target="_blank" class="terminal-button">
+                        <span class="btn-brackets">[</span><span data-i18n="modal.github">view_on_github</span><span class="btn-brackets">]</span> →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content terminal-window">
+            <div class="terminal-header">
+                <span class="terminal-title">$ cat about.md</span>
+                <button class="modal-close about-close">
+                    <span class="btn-brackets">[</span>X<span class="btn-brackets">]</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title">
+                    <span class="prompt-symbol">&gt;</span> <span data-i18n="about.title">About Me</span>
+                </h2>
+                
+                <div class="modal-section">
+                    <div class="terminal-text about-content">
+                        <p data-i18n="about.p1">
+                            I'm a systems programmer passionate about understanding how things work at the lowest level. 
+                            My focus is on performance-critical applications, virtual machines, and low-level architecture.
+                        </p>
+                        <p data-i18n="about.p2">
+                            I believe in building software from first principles, understanding every layer from hardware 
+                            to application. Currently working with C, C++, Rust, and Assembly.
+                        </p>
+                        <p data-i18n="about.p3">
+                            When I'm not debugging segfaults or optimizing memory allocations, I'm probably reading 
+                            documentation or exploring new system architectures.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><span class="section-marker">##</span> <span data-i18n="about.contact">Contact</span></h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/patybolo" target="_blank" class="terminal-link">
+                            <span class="link-prefix">~/</span>github
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <span class="prompt-symbol">$</span> echo <span data-i18n="footer.text">"© 2026 Dario Martin Camino | Built with &lt;3 and coffee"</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
