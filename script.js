@@ -26,7 +26,7 @@ const translations = {
         "about.p2": "I believe in building software from first principles, understanding every layer from hardware to application. Currently working with C, Rust, Zig, Odin and Assembly.",
         "about.p3": "When I'm not debugging segfaults or optimizing memory allocations, I'm probably reading documentation or exploring new system architectures.",
         "about.contact": "Contact",
-        "footer.text": "\"© 2026 Dario Martin Camino | Built with <3 and coffee\""
+        "footer.text": "\"© 2026 Dario Martin Camino\""
     },
     es: {
         tagline: "Desarrollador de Bajo Nivel y Sistemas",
@@ -47,52 +47,87 @@ const translations = {
         "about.p2": "Creo en construir software desde los primeros principios, entendiendo cada capa desde el hardware hasta la aplicación. Actualmente trabajo con C, Rust, Zig, Odin y Assembly.",
         "about.p3": "Cuando no estoy depurando segfaults u optimizando asignaciones de memoria, probablemente esté leyendo documentación o explorando nuevas arquitecturas de sistemas.",
         "about.contact": "Contacto",
-        "footer.text": "\"© 2026 Dario Martin Camino | Construido con <3 y café\""
+        "footer.text": "\"© 2026 Dario Martin Camino\""
     }
 };
 
 const categories = {
     "systems": { en: "systems", es: "sistemas" },
     "vm": { en: "vm/interpreters", es: "vm/intérpretes" },
-    "compilers": { en: "compilers", es: "compiladores" },
+    // "compilers": { en: "compilers", es: "compiladores" },
+    "web": { en: "web", es: "web" },
     "tools": { en: "tools", es: "herramientas" },
+    "games": { en: "games", es: "juegos" },
     "embedded": { en: "embedded", es: "embebido" }
 };
 
 const projectsData = {
     1: {
-        title: "Custom Memory Allocator",
-        category: "systems",
+        title: "Digital Gates Simulator",
+        category: "tools",
         motivation: {
-            en: "Built a custom memory allocator to understand memory management at its core. Implemented various allocation strategies including first-fit, best-fit, and buddy system. This project taught me about fragmentation, memory alignment, and performance trade-offs.",
-            es: "Construí un asignador de memoria personalizado para entender la gestión de memoria en su núcleo. Implementé varias estrategias de asignación incluyendo first-fit, best-fit y buddy system. Este proyecto me enseñó sobre fragmentación, alineación de memoria y compromisos de rendimiento."
-        },
-        status: "completed",
-        technologies: ["C", "Assembly"],
-        githubUrl: "https://github.com/patybolo/memory-allocator"
-    },
-    2: {
-        title: "Bytecode Virtual Machine",
-        category: "vm",
-        motivation: {
-            en: "Developed a stack-based VM from scratch to understand how interpreters work under the hood. Implemented a bytecode compiler and runtime with garbage collection. Great learning experience about instruction dispatch and optimization.",
-            es: "Desarrollé una máquina virtual basada en pila desde cero para entender cómo funcionan los intérpretes internamente. Implementé un compilador de bytecode y runtime con recolección de basura. Gran experiencia de aprendizaje sobre despacho de instrucciones y optimización."
+            en: "Thought to be a simple digital logic simulator to understand basic circuit design. Might scale it to implement gate templates. My first project with Raylib and it is a great learning experience about graphics programming and event handling. It's built on a state machine design pattern",
+            es: "Un proyecto de aprendizaje para entender diseño de circuitos digitales. Implementé un simulador de compuertas lógicas con una interfaz gráfica simple usando Raylib. Fue mi primer proyecto con Raylib y fue una gran experiencia de aprendizaje sobre programación gráfica y manejo de eventos. Está construido usando como patrón de diseño una máquina de estados."
         },
         status: "in-progress",
-        technologies: ["Rust", "Assembly"],
-        githubUrl: "https://github.com/patybolo/bytecode-vm"
+        technologies: ["C"],
+        githubUrl: "https://github.com/patybolo/digisim"
+    },
+    2: {
+        title: "DASM Bytecode Virtual Machine",
+        category: "vm",
+        motivation: {
+            en: "Developed a bytecode VM from scratch in FASM assembly to understand how primitive compilers work under the hood. Lacks support for some instructions that are needed to be considered complete, but got left out to re-implement in v2. Great learning experience about fetch-decode-execute cycle. This was my first project in assembly and it was a deep dive into low-level programming concepts.",
+            es: "Desarrollé una máquina virtual de bytecode desde cero en FASM assembly para entender cómo funcionan los compiladores primitivos. Carece de soporte para algunas instrucciones necesarias para considerarse completa, pero se dejaron fuera para re-implementarlas en la v2. Fue una gran experiencia de aprendizaje sobre el ciclo de fetch-decode-execute. Este fue mi primer proyecto en assembly y fue una inmersión profunda en conceptos de programación de bajo nivel."
+        },
+        status: "completed",
+        technologies: ["Assembly"],
+        githubUrl: "https://github.com/patybolo/dasm-interpreter"
     },
     3: {
-        title: "Compiler Frontend",
-        category: "compilers",
+        title: "DASMnt Bytecode Virtual Machine v2",
+        category: "vm",
         motivation: {
-            en: "A learning project to understand lexing, parsing, and semantic analysis. Built a recursive descent parser and type checker for a simple language. Abandoned in favor of more complete projects, but valuable for understanding compiler theory.",
-            es: "Un proyecto de aprendizaje para entender análisis léxico, sintáctico y semántico. Construí un parser de descenso recursivo y verificador de tipos para un lenguaje simple. Abandonado en favor de proyectos más completos, pero valioso para entender teoría de compiladores."
+            en: "Thought to be a complete rewrite of the DASM VM, with a GUI and support for more complex instructions. Had to rethink the architecture due to the simplicity of the original design. Added support for function calls, a more robust instruction set, and a simple GUI for debugging. Still a work in progress, but it's shaping up to be a much more complete and user-friendly VM. Useful for testing out new language features and understanding more complex VM architectures.",
+            es: "Una reescritura completa de la VM DASM, con una GUI y soporte para instrucciones más complejas. Tuve que repensar la arquitectura debido a la simplicidad del diseño original. Agregué soporte para llamadas a funciones, un conjunto de instrucciones más robusto y una GUI simple para depuración. Todavía es un trabajo en progreso, pero se está convirtiendo en una VM mucho más completa y fácil de usar. Útil para probar nuevas características de lenguaje y entender arquitecturas de VM más complejas."
+        },
+        status: "in-progress",
+        technologies: ["C", "Assembly"],
+        githubUrl: "https://github.com/patybolo/dasmnt"
+    },
+    4: {
+        title: "The King Defeat",
+        category: "games",
+        motivation: {
+            en: "A simple 3D isometric view mobile game inspired in the ads that you see in free mobile games. The player controls a character that only moves left and right, constantly shoots and can pick up weapons that come to them. The goal is to defeat the king that appears after four levels... It's really simple. It was my first approach to Game Development, and had a ton of fun. Made in collaboration with JGameDev (https://github.com/JGameDev1).",
+            es: "Un simple juego móvil con vista isométrica 3D inspirado en los anuncios que ves en juegos móviles gratuitos. El jugador controla un personaje que solo se mueve de izquierda a derecha, dispara constantemente y puede recoger armas que vienen hacia él. El objetivo es derrotar al rey que aparece después de cuatro niveles... Es realmente simple. Fue mi primer acercamiento al desarrollo de juegos, y me divertí mucho. Hecho en colaboración con JGameDev (https://github.com/JGameDev1)."
+        },
+        status: "completed",
+        technologies: ["C#", "Unity"],
+        githubUrl: "https://github.com/patybolo/The-King-Defeat"
+    },
+    5: {
+        title: "Death Race",
+        category: "games",
+        motivation: {
+            en: "Formerly named Medusa's Lair. A simple 2D top-down party game with support to up to 5 players locally. It's inspired in Red Light, Green Light. One player controls the 'doll'. Made in Godot Engine. Got abandoned due to the director leaving the project, but it was a fun learning experience about game design and development.",
+            es: "Anteriormente llamado Medusa's Lair. Un simple juego de fiesta 2D de vista superior con soporte para hasta 5 jugadores localmente. Está inspirado en Red Light, Green Light. Un jugador controla la 'muñeca'. Hecho en Godot Engine. Fue abandonado debido a que el director dejó el proyecto, pero fue una experiencia de aprendizaje divertida sobre diseño y desarrollo de juegos."
         },
         status: "abandoned",
-        technologies: ["C++", "Python"],
-        githubUrl: "https://github.com/patybolo/compiler-frontend"
-    }
+        technologies: ["GDScript", "Godot"],
+        githubUrl: "https://github.com/patybolo/deathrace"
+    },
+    6: {
+        title: "DOS-Like Noise Generator",
+        category: "tools",
+        motivation: {
+            en: "A simple tool for generating noise and colorful patterns. It uses dos-like stb-style single file library for the rendering (https://github.com/mattiasgustavsson/dos-like). It also generates and reproduces a .wav audio file containing the _real_ randomized and displayed noise. I love this aesthetic. Not useful, but fun.",
+            es: "Una herramienta simple de generacion de estatica y patrones coloridos. Usa una libreria del estilo de stb para el renderizado (https://github.com/mattiasgustavsson/dos-like). Tambien genera y reproduce un archivo .wav de audio que contiene el ruido _real_ randomizado y renderizado. Me encanta esta estetica. No es util, pero es divertido."
+        },
+        status: "completed",
+        technologies: ["C"],
+        githubUrl: "https://github.com/patybolo/dos-noisegen"
+    },
 };
 
 // ========================================
