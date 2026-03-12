@@ -66,10 +66,10 @@ const projectsData = {
         title: "Digital Gates Simulator",
         category: "tools",
         motivation: {
-            en: "Thought to be a simple digital logic simulator to understand basic circuit design. Might scale it to implement gate templates. My first project with Raylib and it is a great learning experience about graphics programming and event handling. It's built on a state machine design pattern",
-            es: "Un proyecto de aprendizaje para entender diseño de circuitos digitales. Implementé un simulador de compuertas lógicas con una interfaz gráfica simple usando Raylib. Fue mi primer proyecto con Raylib y fue una gran experiencia de aprendizaje sobre programación gráfica y manejo de eventos. Está construido usando como patrón de diseño una máquina de estados."
+            en: "Thought to be a simple digital logic simulator to understand basic circuit design. Might scale it to implement gate templates. My first project with Raylib and it is a great learning experience about graphics programming and event handling.",
+            es: "Un proyecto de aprendizaje para entender diseño de circuitos digitales. Implementé un simulador de compuertas lógicas con una interfaz gráfica simple usando Raylib. Fue mi primer proyecto con Raylib y fue una gran experiencia de aprendizaje sobre programación gráfica y manejo de eventos."
         },
-        status: "in-progress",
+        status: "completed",
         technologies: ["C"],
         githubUrl: "https://github.com/patybolo/digisim"
     },
